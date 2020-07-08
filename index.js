@@ -14,10 +14,9 @@ const { getScore } = require('./controller/Score/score');
 const db = knex({
     client: 'pg',
     connection: {
-        host: '127.0.0.1',
-        user: 'postgres',
-        password: 'coco',
-        database: 'school'
+        connectionString: process.env.DATABASE_URL,
+        ssl: true,
+
     }
 });
 
