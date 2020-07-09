@@ -36,5 +36,5 @@ app.put('/updateScore', (req,res) => updateScore.updateScore(req,res,db,bcrypt))
 //set up paths 
 
 //set up server
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT
 app.listen(PORT, ()=>console.log(`Server is Running on Port ${PORT}`)) 
