@@ -23,6 +23,7 @@ const db = knex({
 //use the middleware
 app.use(cors());
 app.use(bodyParser.json());
+app.get('/', (req,res) => {res.send('its working')})
 //signin
 app.post('/signin', (req,res) => signin.handleSignin(req,res,db,bcrypt));
 //update password
