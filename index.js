@@ -10,7 +10,7 @@ const storePass = require('./controller/PScreate/Store')
 const updateScore = require('./controller/Score/score');
 const { getScore } = require('./controller/Score/score');
 
-//process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; 
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; 
 //db client
 const db = knex({
     client: 'pg',
