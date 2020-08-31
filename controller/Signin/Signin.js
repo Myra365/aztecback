@@ -8,7 +8,16 @@ const handleSignin = (req,res,db, bcrypt) => {
         .then(data => {
             console.log('the data', data[0])
             const isValid = bcrypt.compareSync(password,data[0].password);
-            if(isValid){
+            if(isValid && username === 'myra365'){
+                return db.select('*').from('student')
+                  .where('username', '=', username)
+                  .then(user => {
+                    console.log('the user',user[0])
+                    res.json('Teacher Found')
+                  })
+                  .catch(err => res.status(400).json('unable to get user'))
+              }
+            else if(isValid){
                 return db.select('*').from('student')
                     .where('username','=',username)
                     .then(user => {

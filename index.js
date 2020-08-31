@@ -9,6 +9,7 @@ const signin = require('./controller/Signin/Signin');
 const storePass = require('./controller/PScreate/Store')
 const updateScore = require('./controller/Score/score');
 const { getScore } = require('./controller/Score/score');
+const reset = require('./controller/Reset/Reset')
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; 
 //db client
@@ -34,6 +35,10 @@ app.put('/store', (req,res) => storePass.storeBcrypt(req,res,db,bcrypt));
 app.get('/updateScore', (req,res) => updateScore.getScore(req,res,db));
 //update score
 app.put('/updateScore', (req,res) => updateScore.updateScore(req,res,db,bcrypt));
+
+//Reset Score
+app.put('/reset', (req,res) => reset.resetScore(req,res,db));
+
 
 //set up paths 
 
